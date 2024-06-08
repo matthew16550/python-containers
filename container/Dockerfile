@@ -4,5 +4,5 @@ WORKDIR /app
 
 COPY requirements.txt .
 
-RUN --mount=type=cache,target=/root/.cache \
+RUN --mount=type=cache,id=pip,target=/root/.cache \
     pip install --root-user-action=ignore -r requirements.txt

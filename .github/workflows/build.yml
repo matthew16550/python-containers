@@ -16,18 +16,18 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - run: echo $TMPDIR
+      - run: echo "RUNNER_UID=$UID" >> "$GITHUB_ENV"
 
       - name: Setup pip cache
         uses: actions/cache@v4
         with:
-          path: /var/tmp/buildah-cache/root/.cache/pip
+          path: /var/tmp/buildah-cache-{{ env.RUNNER_UID }}/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
       - name: Podman build
-        run: podman build .
+        run: podman build container
 
       - run: echo $UID
       - run: echo $USER
