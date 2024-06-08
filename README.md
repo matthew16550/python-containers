@@ -6,4 +6,4 @@ Dev setup:
 
 Generate requirements.txt:
 
-    pip-compile container/requirements.in
+    pip-compile requirements.in
