@@ -1,7 +1,11 @@
 [project]
-name = "vdirsyncer-container"
+name = "python-containers"
 version = "0"
 requires-python = ">= 3.12"
+dependencies = [
+  "fabric",
+  "pip-tools",
+]
 
 [tool.pip-tools]
 allow-unsafe = true

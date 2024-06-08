@@ -1,9 +1,5 @@
 Dev setup:
 
-    brew install direnv
-
-    pip install -r requirements-dev.txt
-
-Generate requirements.txt:
-
-    pip-compile container/requirements.in
+    brew install direnv pyenv
+    pyenv install 3.12.2
+    pip install .

@@ -1,18 +1,16 @@
-# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
-
 version: 2
 updates:
-  - package-ecosystem: "docker"
-    directory: "/container"
-    schedule:
-      interval: "daily"
-
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "daily"
 
+  - package-ecosystem: "docker"
+    directory: "/vdirsyncer"
+    schedule:
+      interval: "daily"
+
   - package-ecosystem: "pip"
-    directory: "/container"
+    directory: "/vdirsyncer"
     schedule:
       interval: "daily"
