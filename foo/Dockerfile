@@ -1,11 +1,10 @@
-FROM docker.io/library/python:3.12.4-slim-bookworm
+FROM foo
 
 WORKDIR /app
 
 COPY requirements.txt .
 
-# hadolint ignore=DL3042
 RUN --mount=type=cache,id=pip,target=/root/.cache \
     pip install --root-user-action=ignore -r requirements.txt
 
-CMD ["/usr/local/bin/vdirsyncer"]
+CMD "/usr/local/bin/vdirsyncer"
