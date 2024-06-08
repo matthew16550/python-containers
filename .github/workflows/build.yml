@@ -24,7 +24,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
-      - run: ls -la /root/.cache/pip
+      - run: ls -la /root/.cache
 
       - name: Podman build
         run: podman build .
