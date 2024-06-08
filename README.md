@@ -2,4 +2,4 @@ Dev setup:
 
     brew install direnv pyenv
     pyenv install 3.12.2
-    pip install .
+    pip install -r requirements.txt
