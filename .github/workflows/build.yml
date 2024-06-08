@@ -28,3 +28,5 @@ jobs:
 
       - name: Podman build
         run: podman build container
+
+      - run: ls /var/tmp/buildah-cache-{{ env.RUNNER_UID }}/pip
