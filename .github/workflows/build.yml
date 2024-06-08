@@ -18,8 +18,6 @@ jobs:
 
       - run: echo $TMPDIR
 
-      - run: ls -la /var/tmp/
-
       - name: Setup pip cache
         uses: actions/cache@v4
         with:
@@ -28,6 +26,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
-
       - name: Podman build
         run: podman build .
+
+      - run: find /var/tmp/ -type d
