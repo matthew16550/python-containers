@@ -1,3 +1,5 @@
+# checkov:skip=CKV_DOCKER_2:HEALTHCHECK not relevant
+
 FROM docker.io/library/python:3.12.4-slim-bookworm
 
 WORKDIR /app
