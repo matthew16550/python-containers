@@ -3,7 +3,7 @@
 version: 2
 updates:
   - package-ecosystem: "docker"
-    directory: "/"
+    directory: "/container"
     schedule:
       interval: "daily"
 
@@ -13,6 +13,6 @@ updates:
       interval: "daily"
 
   - package-ecosystem: "pip"
-    directory: "/"
+    directory: "/container"
     schedule:
       interval: "daily"
