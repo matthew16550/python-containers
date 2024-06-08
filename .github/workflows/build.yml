@@ -28,7 +28,3 @@ jobs:
 
       - name: Podman build
         run: podman build container
-
-      - run: echo $UID
-      - run: echo $USER
-      - run: find /var/tmp/ -type d
