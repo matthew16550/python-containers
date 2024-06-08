@@ -1,6 +1,6 @@
 # python-containers
 
-[![Super-Linter](https://github.com/matthew16550/python-containers/actions/workflows/lint/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![Lint](https://github.com/matthew16550/python-containers/actions/workflows/lint.yml/badge.svg)](https://github.com/matthew16550/python-containers/actions/workflows/lint.yml)
 
 Dev setup:
 
