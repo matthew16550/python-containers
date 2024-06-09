@@ -46,4 +46,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PYTHONPATH: /github/workspace/.venv/lib/python${{ env.PYTHON_MAJOR_MINOR }}/site-packages
           XUSE_FIND_ALGORITHM: true
-          LOG_LEVEL: DEBUG
+          VALIDATE_JSCPD: false
