@@ -33,6 +33,8 @@ jobs:
         run: pip install -r requirements.txt
 
       - run: python -c 'import sys; print(sys.path)'
+      - run: python -m site
+      - run: python -m site --user-site
 
       - name: Super-linter
         uses: super-linter/super-linter@v6.6.0
