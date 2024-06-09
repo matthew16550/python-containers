@@ -1,6 +1,3 @@
-import sys
-raise RuntimeError(str(sys.path))
-
 import os
 from pathlib import Path
 
