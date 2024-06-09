@@ -35,7 +35,7 @@ jobs:
       - name: Install deps
         run: pip install --user -r requirements.txt
 
-      - run:  ls -la :${{ env.SITE_PATH }}
+      - run:  ls -la ${{ env.SITE_PATH }}
 
       - run: python -m site
         env:
