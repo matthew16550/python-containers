@@ -36,7 +36,7 @@ jobs:
         run: pip install --user -r requirements.txt
 
       - name: Super-linter
-        uses: super-linter/super-linter-slim@v6.6.0
+        uses: super-linter/super-linter/slim@v6.6.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PYTHONPATH: ${{ github.workspace }}:${{ env.SITE_PATH }}
