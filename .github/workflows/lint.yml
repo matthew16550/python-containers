@@ -30,8 +30,9 @@ jobs:
           cache-dependency-path: 'requirements.txt'
 
       - name: Install deps
-        run: pip install -r requirements.txt
+        run: pip install --user -r requirements.txt
 
+      - run: ls /home/runner/.local/lib/python3.12/site-packages
       - run: python -c 'import sys; print(sys.path)'
       - run: python -m site
       - run: python -m site --user-site
