@@ -1,7 +1,7 @@
 # python-containers
 
 [![Build Images](https://github.com/matthew16550/python-containers/actions/workflows/build_images.yml/badge.svg)][build_images]
-[![Lint](https://github.com/matthew16550/python-containers/actions/workflows/lint.yml/badge.svg)][lint]
+[![Super Linter](https://github.com/matthew16550/python-containers/actions/workflows/super_linter.yml/badge.svg)][super_linter]
 
 Dev setup:
 
@@ -10,4 +10,4 @@ Dev setup:
     pip install -r requirements.txt
 
 [build_images]: https://github.com/matthew16550/python-containers/actions/workflows/build_images.yml
-[lint]: https://github.com/matthew16550/python-containers/actions/workflows/lint.yml
+[super_linter]: https://github.com/matthew16550/python-containers/actions/workflows/super_linter.yml
