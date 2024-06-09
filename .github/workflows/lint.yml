@@ -29,22 +29,19 @@ jobs:
           cache: 'pip'
           cache-dependency-path: 'requirements.txt'
 
+      - name: Create venv
+        run: python -m venv .venv
+
       - name: Install deps
-        run: pip install --user -r requirements.txt
+        run: .venv/bin/pip install -r requirements.txt
 
-      - name: Find python site path
-        run: echo "SITE_PATH=$(python -m site --user-site)" >> "$GITHUB_ENV"
+      - run: ls -la .venv/lib/python3.12/site-packages
 
-      - run:  ls -la ${{ env.SITE_PATH }}
-
-      - run: python -m site
-
-      - run: python -m site
-        env:
-          PYTHONPATH: /github/workspace:${{ env.SITE_PATH }}
+      - name: Get python version
+        run: echo "PYTHON_MAJOR_MINOR=$( python -c 'import sys; print("%d.%d" % sys.version_info[:2])' )" >> "$GITHUB_ENV"
 
       - name: Super-linter
         uses: super-linter/super-linter/slim@v6.6.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PYTHONPATH: /github/workspace:${{ env.SITE_PATH }}
+          PYTHONPATH: /github/workspace/.venv/lib/python${{ env.PYTHON_MAJOR_MINOR }}/site-packages
