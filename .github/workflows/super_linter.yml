@@ -1,4 +1,3 @@
----
 name: Super Linter
 
 on:
@@ -14,8 +13,7 @@ permissions:
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,9 +23,9 @@ jobs:
       - name: Setup python
         uses: actions/setup-python@v5
         with:
-          python-version-file: 'pyproject.toml'
-          cache: 'pip'
-          cache-dependency-path: 'requirements.txt'
+          python-version-file: pyproject.toml
+          cache: pip
+          cache-dependency-path: requirements.txt
 
       - name: Create venv
         run: python -m venv .venv
@@ -35,15 +33,12 @@ jobs:
       - name: Install deps
         run: .venv/bin/pip install -r requirements.txt
 
-      - run: ls -la .venv/lib/python3.12/site-packages
-
       - name: Get python version
         run: echo "PYTHON_MAJOR_MINOR=$( python -c 'import sys; print("%d.%d" % sys.version_info[:2])' )" >> "$GITHUB_ENV"
 
-      - name: Super-linter
+      - name: Run super-linter
         uses: super-linter/super-linter/slim@v6.6.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PYTHONPATH: /github/workspace/.venv/lib/python${{ env.PYTHON_MAJOR_MINOR }}/site-packages
-          XUSE_FIND_ALGORITHM: true
           VALIDATE_JSCPD: false

@@ -1,2 +1,2 @@
-  fabric
-  pip-tools
+fabric
+pip-tools

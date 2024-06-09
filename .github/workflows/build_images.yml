@@ -16,15 +16,19 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     steps:
-      - run: echo "RUNNER_UID=$UID" >> "$GITHUB_ENV"
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - uses: actions/checkout@v4
+      - name: Get runner uid
+        run: echo "RUNNER_UID=$UID" >> "$GITHUB_ENV"
 
-      - uses: actions/cache@v4
+      - name: Setup pip cache
+        uses: actions/cache@v4
         with:
           path: /var/tmp/buildah-cache-${{ env.RUNNER_UID }}/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
-      - run: podman build vdirsyncer
+      - name: Build vdirsyncer
+        run: podman build vdirsyncer
