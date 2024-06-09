@@ -35,8 +35,14 @@ jobs:
       - name: Install deps
         run: pip install --user -r requirements.txt
 
+      - run:  ls -la :${{ env.SITE_PATH }}
+
+      - run: python -m site
+        env:
+          PYTHONPATH: /github/workspace:${{ env.SITE_PATH }}
+
       - name: Super-linter
         uses: super-linter/super-linter/slim@v6.6.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PYTHONPATH: ${{ github.workspace }}:${{ env.SITE_PATH }}
+          PYTHONPATH: /github/workspace:${{ env.SITE_PATH }}
