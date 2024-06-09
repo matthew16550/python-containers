@@ -29,13 +29,15 @@ jobs:
           cache: 'pip'
           cache-dependency-path: 'requirements.txt'
 
-      - name: Find python site path
-        run: echo "SITE_PATH=$(python -m site --user-site)" >> "$GITHUB_ENV"
-
       - name: Install deps
         run: pip install --user -r requirements.txt
 
+      - name: Find python site path
+        run: echo "SITE_PATH=$(python -m site --user-site)" >> "$GITHUB_ENV"
+
       - run:  ls -la ${{ env.SITE_PATH }}
+
+      - run: python -m site
 
       - run: python -m site
         env:
