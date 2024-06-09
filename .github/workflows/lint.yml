@@ -32,6 +32,8 @@ jobs:
       - name: Install deps
         run: pip install -r requirements.txt
 
+      - run: python -c 'import sys; print(sys.path)'
+
       - name: Super-linter
         uses: super-linter/super-linter@v6.6.0
         env:
