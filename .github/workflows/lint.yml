@@ -29,15 +29,14 @@ jobs:
           cache: 'pip'
           cache-dependency-path: 'requirements.txt'
 
+      - name: Find python site path
+        run: echo "SITE_PATH=$(python -m site --user-site)" >> "$GITHUB_ENV"
+
       - name: Install deps
         run: pip install --user -r requirements.txt
 
-      - run: ls /home/runner/.local/lib/python3.12/site-packages
-      - run: python -c 'import sys; print(sys.path)'
-      - run: python -m site
-      - run: python -m site --user-site
-
       - name: Super-linter
-        uses: super-linter/super-linter@v6.6.0
+        uses: super-linter/super-linter-slim@v6.6.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PYTHONPATH: ${{ github.workspace }}:${{ env.SITE_PATH }}
